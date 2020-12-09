@@ -13,41 +13,70 @@
 #include <string>
 
 int main() {
+    
+    bool choose;
+    char input;
 
     IBSTree<float> *floatTree = new BSTree<float>();
-    
-    floatTree->Insert(45);
-    floatTree->Insert(87);
-    floatTree->Insert(12);
-    floatTree->Insert(13);
-    floatTree->Insert(11);
-    floatTree->Insert(9);
-    floatTree->Insert(21);
-    floatTree->Insert(34);
-    floatTree->Insert(36);
-    floatTree->Insert(55);
-    floatTree->Insert(18);
-    floatTree->Insert(23);
-    floatTree->Insert(24);
-    floatTree->Insert(7);
-    floatTree->Insert(50);
-    floatTree->Insert(20);
-    floatTree->Insert(2);
-    floatTree->Insert(10);
-    floatTree->Insert(90);
-    floatTree->Insert(86);
-    floatTree->Insert(52);
-    floatTree->Insert(81);
-    floatTree->Insert(22);
-    floatTree->Insert(29);
-    floatTree->Insert(15);
-    floatTree->Insert(6);
-    floatTree->Insert(14);
-    floatTree->Insert(66);
-    floatTree->Insert(77);
-    floatTree->Insert(88);
-     
-    
+    IBSTree<float> *AVLTree = new BSTree<float>();
+
+    std::cout << "Would you like to use the default values for the tree? (Y/N) " << std::endl;
+    std::cin >> input;
+
+    // if they don't want the default values
+    if(input == 'N' || input == 'n')
+    {   
+        // create custom AVL Tree at the same time
+        choose = true;
+        std::cout << "Please enter 30 integers one at a time into the tree." << std::endl;
+        for(int i = 0; i < 30; i++)
+        {
+            int num;
+            std::cin >> num;
+            floatTree->Insert(num);
+            AVLTree->Insert(num);
+        }
+    }
+    // default values
+    else if(input == 'Y' || input == 'y')
+    {
+        choose = false;
+        floatTree->Insert(45);
+        floatTree->Insert(87);
+        floatTree->Insert(12);
+        floatTree->Insert(13);
+        floatTree->Insert(11);
+        floatTree->Insert(9);
+        floatTree->Insert(21);
+        floatTree->Insert(34);
+        floatTree->Insert(36);
+        floatTree->Insert(55);
+        floatTree->Insert(18);
+        floatTree->Insert(23);
+        floatTree->Insert(24);
+        floatTree->Insert(7);
+        floatTree->Insert(50);
+        floatTree->Insert(20);
+        floatTree->Insert(2);
+        floatTree->Insert(10);
+        floatTree->Insert(90);
+        floatTree->Insert(86);
+        floatTree->Insert(52);
+        floatTree->Insert(81);
+        floatTree->Insert(22);
+        floatTree->Insert(29);
+        floatTree->Insert(15);
+        floatTree->Insert(6);
+        floatTree->Insert(14);
+        floatTree->Insert(66);
+        floatTree->Insert(77);
+        floatTree->Insert(88);
+    }
+    else
+    {
+        return 0;
+    }
+       
     
     // unbalanced tree In Order print...
     std::cout << "In order print for Unbalanced Tree: " << std::endl;
@@ -83,39 +112,39 @@ int main() {
     std::cout << "ACE is: " << ACE1 << std::endl;
     
     // New AVL Tree
-    
-    IBSTree<float> *AVLTree = new BSTree<float>();
-    
-    AVLTree->Insert(45);
-    AVLTree->Insert(87);
-    AVLTree->Insert(12);
-    AVLTree->Insert(13);
-    AVLTree->Insert(11);
-    AVLTree->Insert(9);
-    AVLTree->Insert(21);
-    AVLTree->Insert(34);
-    AVLTree->Insert(36);
-    AVLTree->Insert(55);
-    AVLTree->Insert(18);
-    AVLTree->Insert(23);
-    AVLTree->Insert(24);
-    AVLTree->Insert(7);
-    AVLTree->Insert(50);
-    AVLTree->Insert(20);
-    AVLTree->Insert(2);
-    AVLTree->Insert(10);
-    AVLTree->Insert(90);
-    AVLTree->Insert(86);
-    AVLTree->Insert(52);
-    AVLTree->Insert(81);
-    AVLTree->Insert(22);
-    AVLTree->Insert(29);
-    AVLTree->Insert(15);
-    AVLTree->Insert(6);
-    AVLTree->Insert(14);
-    AVLTree->Insert(66);
-    AVLTree->Insert(77);
-    AVLTree->Insert(88);
+    if (choose == false)
+    {
+        AVLTree->Insert(45);
+        AVLTree->Insert(87);
+        AVLTree->Insert(12);
+        AVLTree->Insert(13);
+        AVLTree->Insert(11);
+        AVLTree->Insert(9);
+        AVLTree->Insert(21);
+        AVLTree->Insert(34);
+        AVLTree->Insert(36);
+        AVLTree->Insert(55);
+        AVLTree->Insert(18);
+        AVLTree->Insert(23);
+        AVLTree->Insert(24);
+        AVLTree->Insert(7);
+        AVLTree->Insert(50);
+        AVLTree->Insert(20);
+        AVLTree->Insert(2);
+        AVLTree->Insert(10);
+        AVLTree->Insert(90);
+        AVLTree->Insert(86);
+        AVLTree->Insert(52);
+        AVLTree->Insert(81);
+        AVLTree->Insert(22);
+        AVLTree->Insert(29);
+        AVLTree->Insert(15);
+        AVLTree->Insert(6);
+        AVLTree->Insert(14);
+        AVLTree->Insert(66);
+        AVLTree->Insert(77);
+        AVLTree->Insert(88);
+    }
     
     
     int max2 = AVLTree->Max();
